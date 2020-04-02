@@ -27,7 +27,6 @@
 
 <script>
 import HeaderLogo from '~/components/HeaderLogo'
-import ToggleTheme from '~/components/ToggleTheme'
 
 export default {
   props: {
@@ -37,54 +36,18 @@ export default {
     }
   },
   components: {
-    HeaderLogo,
-    ToggleTheme
+    HeaderLogo
   }
 }
 </script>
 
-<style lang="scss">
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-height: var(--header-height);
-  padding: 0 calc(var(--space) / 2);
-  top: 0;
-  z-index: 10;
-
-  &__left,
-  &__right {
-    display: flex;
-    align-items: center;
-  }
-
-  @media screen and (min-width: 1300px) {
-    //Make header sticky for large screens
-    position: sticky;
-    width: 100%;
-  }
+<style>
+:root {
+  --color-primary: #d72132;
+  --color-gray-dark: #4a4a4a;
+  --color-gray-light: #e9e9e9;
 }
-
-.main {
-  margin: 0 auto;
-  padding: 1.5vw 15px 0;
-}
-
-.footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: calc(var(--space) / 2);
-  text-align: center;
-  font-size: 0.8em;
-
-  > span {
-    margin: 0 0.35em;
-  }
-
-  a {
-    color: currentColor;
-  }
+body {
+  margin: 0;
 }
 </style>
