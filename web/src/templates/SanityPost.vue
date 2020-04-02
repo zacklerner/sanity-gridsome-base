@@ -15,7 +15,7 @@
         />
       </div>
 
-      <block-content
+      <base-block-content
         class="post__content"
         :blocks="$page.post._rawBody"
         v-if="$page.post._rawBody"
@@ -35,7 +35,6 @@
 </template>
 
 <script>
-import BlockContent from '~/components/BlockContent'
 import PostMeta from '~/components/PostMeta'
 import PostTags from '~/components/PostTags'
 import AuthorCard from '~/components/AuthorCard'
@@ -44,8 +43,7 @@ export default {
   components: {
     AuthorCard,
     PostMeta,
-    PostTags,
-    BlockContent
+    PostTags
   },
   metaInfo() {
     return {
