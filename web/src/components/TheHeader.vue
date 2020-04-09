@@ -1,7 +1,12 @@
 <template>
-  <header>
+  <header class="the-header">
     <HeaderLogo v-if="showLogo" />
-    This is 'The' header.
+    <nav class="navigation--primary">
+      <g-link to="/">Home</g-link>
+      <g-link to="/about">About</g-link>
+      <g-link to="/portfolio">Portfolio</g-link>
+      <g-link to="/blog">Blog</g-link>
+    </nav>
   </header>
 </template>
 
@@ -20,3 +25,15 @@ export default {
   }
 }
 </script>
+
+<style>
+.the-header {
+  background-color: lavenderblush;
+  padding: var(--common-spacing);
+  display: flex;
+  justify-content: space-between;
+}
+.navigation--primary a {
+  margin-left: calc(var(--common-spacing) / 2);
+}
+</style>

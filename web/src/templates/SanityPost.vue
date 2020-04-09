@@ -3,7 +3,7 @@
     <div class="post-title">
       <h1 class="post-title__text">{{ $page.post.title }}</h1>
 
-      <post-meta :post="$page.post" v-if="$page.post" />
+      <PostMeta :post="$page.post" v-if="$page.post" />
     </div>
 
     <div class="post content-box">
@@ -15,14 +15,14 @@
         />
       </div>
 
-      <base-block-content
+      <BaseBlockContent
         class="post__content"
         :blocks="$page.post._rawBody"
         v-if="$page.post._rawBody"
       />
 
       <div class="post__footer">
-        <post-tags :post="$page.post" v-if="$page.post" />
+        <PostTags :post="$page.post" v-if="$page.post" />
       </div>
     </div>
 
