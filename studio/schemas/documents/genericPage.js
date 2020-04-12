@@ -47,7 +47,10 @@ export default {
       name: 'heroVideoPoster',
       type: 'image',
       title: 'Hero Video Poster',
-      fieldset: 'heroSection'
+      fieldset: 'heroSection',
+      options: {
+        hotspot: true
+      }
     },
     {
       name: 'heroVideo',

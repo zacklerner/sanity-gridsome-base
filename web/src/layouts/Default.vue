@@ -29,6 +29,7 @@ export default {
   --color-gray-light: #e9e9e9;
   --common-spacing: 40px;
   --max-width--readable: 900px;
+  --primary-shadow: 10px 10px 26px 10px rgba(0,0,0,0.75);
 }
 body {
   margin: 0;
@@ -41,9 +42,6 @@ body > #app {
   flex-direction: column;
   min-height: 100vh;
 }
-body > #app > * {
-  box-shadow: 10px 10px 26px 10px rgba(0,0,0,0.75);
-}
 body * {
   margin: 0;
 }
@@ -51,11 +49,30 @@ h1, h2, h3 {
   font-family: 'Space Mono', monospace;
   font-weight: 400;
 }
+h2 {
+  margin-bottom: calc(var(--common-spacing) / 2);
+}
+h3 {
+  margin-bottom: calc(var(--common-spacing) / 3);
+}
 main.main {
-  padding: var(--common-spacing);
   margin: var(--common-spacing) 0;
   flex: 1;
   color: blue;
-  background-color:paleturquoise;
+}
+main.main > *,
+main.main > * > * {
+  box-shadow: var(--primary-shadow);
+  margin-bottom: var(--common-spacing);
+}
+main.main > * {
+  background-color: yellow;
+  padding: var(--common-spacing);
+}
+main.main > * > * {
+  background-color: black;
+}
+main.main > * > *:last-child {
+  margin-bottom: 0;
 }
 </style>

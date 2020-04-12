@@ -31,7 +31,24 @@ export default {
               />
               <figcaption>{node.caption}</figcaption>
             </figure>
-          )
+          ),
+          authorReference: ({ node }) => {
+            // const href = `/authors/${node.author.slug.current}`
+            return <div>Author Ref: {node.author.name}</div>
+          }
+        },
+        marks: {
+          internalLink: ({mark, children}) => {
+            const { reference = {} } = mark
+            const href = reference.path
+            return <a href={href}>{children}</a>
+          },
+          link: ({mark, children}) => {
+            const { blank, href } = mark
+            return blank ?
+              <a href={href} target="_blank" rel="noopener">{children}</a>
+              : <a href={href}>{children}</a>
+          } 
         }
       }
     }

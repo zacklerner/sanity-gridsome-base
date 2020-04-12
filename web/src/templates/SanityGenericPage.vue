@@ -2,6 +2,14 @@
   <Layout>
     <h1>{{ $page.post.title }}</h1>
     <h2>{{ $page.post.heroHeading }}</h2>
+    <HeroVideo
+      :heroHeading="$page.post.heroHeading"
+      :heroSubtitle="$page.post.heroSubtitle"
+      :mp4Source="$page.post.heroVideo"
+      :oggSource="$page.post.heroVideoOgg"
+      :webmSource="$page.post.heroVideoWebm"
+      :poster="$page.post.heroVideoPoster"
+    />
     <BaseBlockContent
       class="intro-copy"
       :blocks="$page.post._rawIntroCopy"
@@ -16,7 +24,12 @@
 </template>
 
 <script>
+import HeroVideo from '~/components/HeroVideo'
+
 export default {
+  components: {
+    HeroVideo
+  },
   metaInfo() {
     return {
       title: this.$page.post.title,
@@ -52,7 +65,7 @@ query Post ($id: ID!) {
     heroVideoOgg
     heroVideoWebm
     _rawIntroCopy
-    _rawBody
+    _rawBody(resolveReferences: { maxDepth: 5 })
     metaDescription
   }
 }

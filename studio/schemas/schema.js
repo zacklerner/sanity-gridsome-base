@@ -13,11 +13,14 @@ import post from './documents/post'
 import siteSettings from './documents/siteSettings'
 
 // Object types
+import authorReference from './objects/authorReference'
 import bodyPortableText from './objects/bodyPortableText'
 import bioPortableText from './objects/bioPortableText'
 import excerptPortableText from './objects/excerptPortableText'
 import mainImage from './objects/mainImage'
-import authorReference from './objects/authorReference'
+import multiColumnText from './objects/multiColumnText'
+import multiColumnTextColumn from './objects/multiColumnTextColumn'
+import slider from './objects/slider'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -28,17 +31,20 @@ export default createSchema({
   types: schemaTypes.concat([
     // The following are document types which will appear
     // in the studio.
-    siteSettings,
-    post,
+    author,
+    authorReference,
+    bioPortableText,
+    bodyPortableText,
+    category,
+    excerptPortableText,
     genericPage,
     homepage,
-    category,
-    author,
     mainImage,
-    authorReference,
-    bodyPortableText,
-    bioPortableText,
-    excerptPortableText
+    multiColumnText,
+    multiColumnTextColumn,
+    post,
+    siteSettings,
+    slider
 
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas

@@ -14,7 +14,7 @@ export default {
     {
       title: 'Hero Section',
       name: 'heroSection'
-    }
+    },
   ],
   fields: [
     {
@@ -38,7 +38,10 @@ export default {
       name: 'heroVideoPoster',
       type: 'image',
       title: 'Hero Video Poster',
-      fieldset: 'heroSection'
+      fieldset: 'heroSection',
+      options: {
+        hotspot: true
+      }
     },
     {
       name: 'heroVideo',
@@ -67,19 +70,20 @@ export default {
       title: 'Intro Copy',
       fieldset: 'heroSection',
     },
-    // {
-    //   name: 'content',
-    //   type: 'array',
-    //   title: 'Flexible Content Blocks',
-    //   of: [
-    //     { type: 'accordion' },
-    //     { type: 'cta' },
-    //     { type: 'slider' },
-    //     { type: 'textWithImage' },
-    //     { type: 'multiColumnText' },
-    //   ],
-    //   fieldset: 'heroSection',
-    // },
+    {
+      name: 'body',
+      type: 'bodyPortableText',
+      title: 'Body'
+    },
+    {
+      name: 'content',
+      type: 'array',
+      title: 'Flexible Content',
+      of: [
+        { type: 'multiColumnText' },
+        { type: 'slider' },
+      ],
+    },
     {
       name: 'metaDescription',
       type: 'text',

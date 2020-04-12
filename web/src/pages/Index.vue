@@ -1,13 +1,39 @@
 <template>
   <Layout>
-    <h1>{{ $page.page.title }}</h1>
-    <h2>{{ $page.page.heroHeading }}</h2>
-    <BaseBlockContent :blocks="$page.page._rawIntroCopy" class="intro-copy" />
+    <h1 class="page-title">{{ $page.page.title }}</h1>
+    <div class="hero-section">
+      <HeroVideo
+        :heroHeading="$page.page.heroHeading"
+        :heroSubtitle="$page.page.heroSubtitle"
+        :mp4Source="$page.page.heroVideo"
+        :oggSource="$page.page.heroVideoOgg"
+        :webmSource="$page.page.heroVideoWebm"
+        :poster="$page.page.heroVideoPoster"
+      />
+      <BaseBlockContent
+        class="intro-copy"
+        :blocks="$page.page._rawIntroCopy"
+        v-if="$page.page._rawIntroCopy"
+      />
+    </div>
+    <BaseBlockContent
+      class="body-copy"
+      :blocks="$page.page._rawBody"
+      v-if="$page.page._rawBody"
+    />
+    <FlexibleContentWrapper :flexibleContentBlocks="$page.page.content" />
   </Layout>
 </template>
 
 <script>
+import FlexibleContentWrapper from '~/components/FlexibleContentWrapper'
+import HeroVideo from '~/components/HeroVideo'
+
 export default {
+  components: {
+    FlexibleContentWrapper,
+    HeroVideo
+  },
   metaInfo: {
     title: 'Home | Sanity/Gridsome Base Theme'
   }
@@ -17,6 +43,11 @@ export default {
 <style>
 .intro-copy {
   max-width: var(--max-width--readable);
+  padding: var(--common-spacing);
+}
+h1.page-title {
+  background-color: magenta;
+  margin-top: var(--common-spacing);
 }
 </style>
 
@@ -41,6 +72,33 @@ query Page {
     heroVideoOgg
     heroVideoWebm
     _rawIntroCopy
+    _rawBody
+    content {
+      ... on SanityMultiColumnText {
+        _key
+        _type
+        title
+        columns {
+          ... on SanityMultiColumnTextColumn {
+            _key
+            title
+            image {
+              asset {
+                url
+              }
+            }
+            _rawText
+          }
+        }
+        buttonText
+        buttonLink
+      }
+      ... on SanitySlider {
+        _key
+        _type
+        title
+      }
+    }
     metaDescription
   }
 }

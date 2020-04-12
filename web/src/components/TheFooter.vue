@@ -11,10 +11,11 @@
 
 <style>
 .the-footer {
-  background-color: lavenderblush;
+  background-color:#ff7500;
   padding: var(--common-spacing);
   font-size: 0.75rem;
   display: flex;
   justify-content: space-between;
+  box-shadow: var(--primary-shadow);
 }
 </style>

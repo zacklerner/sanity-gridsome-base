@@ -1,3 +1,5 @@
+import { MdViewColumn, MdPerson } from 'react-icons/md'
+
 export default {
   name: 'bodyPortableText',
   type: 'array',
@@ -35,12 +37,36 @@ export default {
                 title: 'URL',
                 name: 'href',
                 type: 'url'
+              },
+              {
+                title: 'Open in new tab',
+                name: 'blank',
+                description: 'Read https://css-tricks.com/use-target_blank/',
+                type: 'boolean'
+              }
+            ]
+          },
+          {
+            name: 'internalLink',
+            type: 'object',
+            title: 'Internal Link',
+            fields: [
+              {
+                name: 'reference',
+                type: 'reference',
+                title: 'Reference',
+                to: [
+                  { type: 'genericPage' },
+                  { type: 'post' }
+                ]
               }
             ]
           }
         ]
       },
-      of: [{type: 'authorReference'}]
+      of: [
+        { type: 'authorReference', icon: MdPerson },
+      ]
     },
     // You can add additional types here. Note that you can't use
     // primitive types such as 'string' and 'number' in the same array
