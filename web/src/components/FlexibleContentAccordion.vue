@@ -1,34 +1,40 @@
 <template>
-  <div class="accordion__wrapper">
-    <badger-accordion>
-      <badger-accordion-item>
-        <template slot="header">
-          <span>{{ type }}</span>
-          <h2>{{ title }}</h2>
-        </template>
-        <template slot="content">
-          <BaseImageWithRatio
-            :src="image.asset.url"
-            :meta="$static.metadata.sanityOptions"
-            v-if="image !== null"
-          />
-          <BaseBlockContent
-            :blocks="content"
-            v-if="content"
-          />
-        </template>
-      </badger-accordion-item>
-    </badger-accordion>
-  </div>
+  <ClientOnly>
+    <div class="accordion__wrapper">
+      <badger-accordion>
+        <badger-accordion-item>
+          <template slot="header">
+            <span>{{ type }}</span>
+            <h2>{{ title }}</h2>
+          </template>
+          <template slot="content">
+            <BaseImageWithRatio
+              :src="image.asset.url"
+              :meta="$static.metadata.sanityOptions"
+              v-if="image !== null"
+            />
+            <BaseBlockContent
+              :blocks="content"
+              v-if="content"
+            />
+          </template>
+        </badger-accordion-item>
+      </badger-accordion>
+    </div>
+  </ClientOnly>
 </template>
 
 <script>
-import { BadgerAccordion, BadgerAccordionItem } from 'vue-badger-accordion'
-
 export default {
   components: {
-    BadgerAccordion,
-    BadgerAccordionItem
+    BadgerAccordion: () =>
+      import ('vue-badger-accordion')
+      .then(m => m.BadgerAccordion)
+      .catch(),
+    BadgerAccordionItem: () =>
+      import ('vue-badger-accordion')
+      .then(m => m.BadgerAccordionItem)
+      .catch()
   },
   props: {
     type: String,
@@ -43,7 +49,7 @@ export default {
 .flexible-content__wrapper .flexible-content__item-wrapper > div.accordion__wrapper {
   border: none;
 }
-.badger-accordion__header .js-badger-accordion-header .badger-accordion-toggle {
+.accordion__wrapper .badger-accordion__header .js-badger-accordion-header .badger-accordion-toggle {
   border: var(--border-primary);
   padding: calc(var(--common-spacing) / 2) var(--common-spacing);
 }
