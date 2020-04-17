@@ -8,5 +8,11 @@ export default {
       name: 'title',
       type: 'string',
     },
+    {
+      title: 'Slides',
+      name: 'slides',
+      type: 'array',
+      of: [{ type: 'sliderSlide' }]
+    }
   ]
 }

@@ -11,7 +11,7 @@
     </div>
     <div class="hero-video__overlay"></div>
     <div class="hero-video__poster">
-      <img :src="poster" alt="" />
+      <img :src="poster.asset.url" alt="" />
     </div>
     <BaseVideo
       :mp4Source="mp4Source"
@@ -57,9 +57,15 @@ export default {
   position: relative;
   display: flex;
 }
+.hero-video__wrapper:hover img,
+.hero-video__wrapper:hover video {
+  filter: grayscale(0);
+}
+.hero-video__wrapper:hover .hero-video__overlay {
+  opacity: 0;
+}
 .hero-video__content {
   z-index: 3;
-  color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -70,7 +76,6 @@ export default {
 }
 .hero-video__play-button {
   background-color: var(--primary-color);
-  color: white;
   border: none;
   padding: 20px;
   font-size: 1.25rem;
@@ -91,20 +96,24 @@ export default {
 .hero-video__poster {
   z-index: 1;
   transition: opacity 0.5s linear;
+  overflow: hidden;
 }
 .hero-video__poster img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .hero-video__overlay {
   background-color: #fff;
   opacity: 0.25;
-  transition: opacity 1s linear;
+  transition: opacity 0.25s linear;
   z-index: 2;
 }
 .video--playing .hero-video__overlay,
 .video--playing .hero-video__poster {
   opacity: 0;
 }
+.video--playing .hero-video__content h2,
 .video--playing .hero-video__content p,
 .video--playing .hero-video__content button {
   transform: translateY(-20%);

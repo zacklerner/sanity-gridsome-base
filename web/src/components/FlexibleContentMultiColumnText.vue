@@ -10,7 +10,10 @@
           :key="column.key"
         >
           <h3>{{ column.title }}</h3>
-          <div class="column-image__wrapper" :style="{ backgroundImage: `url(${column.image.asset.url})` }"></div>
+          <BaseImageWithRatio
+            :src="column.image.asset.url"
+            :meta="$static.metadata.sanityOptions"
+          />
           <BaseBlockContent :blocks="column._rawText" />
         </div>
       </div>
@@ -48,11 +51,15 @@ export default {
   display: flex;
   flex-direction: column;
 }
-.column-image__wrapper {
-  height: 0;
-  padding-top: 50%;
-  background-size: cover;
-  background-position: center;
-  margin-bottom: calc(var(--common-spacing) / 2);
-}
 </style>
+
+<static-query>
+query {
+  metadata {
+    sanityOptions{
+      projectId
+      dataset
+    }
+  }
+}
+</static-query>

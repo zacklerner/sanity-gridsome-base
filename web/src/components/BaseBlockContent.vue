@@ -25,6 +25,7 @@ export default {
             <figure>
               <img
                 src={this.$urlForImage(node, this.$static.metadata.sanityOptions)
+                  .width(1920)
                   .auto('format')
                   .url()}
                 alt={node.alt}
@@ -55,6 +56,12 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+img {
+  width: 100%;
+}
+</style>
 
 <static-query>
   {

@@ -17,12 +17,21 @@
         v-if="block._type == 'slider'"
         :type="block._type"
         :title="block.title"
+        :slides="block.slides"
+      />
+      <FlexibleContentAccordion
+        v-if="block._type == 'accordion'"
+        :type="block._type"
+        :title="block.title"
+        :image="block.image"
+        :content="block._rawContent"
       />
     </div>
   </div>
 </template>
 
 <script>
+import FlexibleContentAccordion from '~/components/FlexibleContentAccordion'
 import FlexibleContentMultiColumnText from '~/components/FlexibleContentMultiColumnText'
 import FlexibleContentSlider from '~/components/FlexibleContentSlider'
 
@@ -31,17 +40,23 @@ export default {
     flexibleContentBlocks: Array
   },
   components: {
+    FlexibleContentAccordion,
     FlexibleContentMultiColumnText,
     FlexibleContentSlider
   }
 }
 </script>
 
-<style>
+<style scoped>
 .flexible-content__item-wrapper {
   display: flex;
   flex-direction: column;
   margin-bottom: var(--common-spacing);
-  box-shadow: var(--primary-shadow);
+  border: none;
+  box-shadow: none;
+}
+.flexible-content__item-wrapper > div {
+  box-shadow: var(--shadow-primary);
+  border: var(--border-primary);
 }
 </style>

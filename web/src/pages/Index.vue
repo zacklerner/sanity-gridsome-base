@@ -16,11 +16,13 @@
         v-if="$page.page._rawIntroCopy"
       />
     </div>
-    <BaseBlockContent
-      class="body-copy"
-      :blocks="$page.page._rawBody"
-      v-if="$page.page._rawBody"
-    />
+    <div class="body-copy__wrapper">
+      <BaseBlockContent
+        class="body-copy"
+        :blocks="$page.page._rawBody"
+        v-if="$page.page._rawBody"
+      />
+    </div>
     <FlexibleContentWrapper :flexibleContentBlocks="$page.page.content" />
   </Layout>
 </template>
@@ -41,12 +43,12 @@ export default {
 </script>
 
 <style>
-.intro-copy {
+.intro-copy,
+.body-copy {
   max-width: var(--max-width--readable);
   padding: var(--common-spacing);
 }
 h1.page-title {
-  background-color: magenta;
   margin-top: var(--common-spacing);
 }
 </style>
@@ -97,6 +99,29 @@ query Page {
         _key
         _type
         title
+        slides {
+          _key
+          title
+          image {
+            asset {
+              url
+            }
+          }
+          _rawText
+          linkText
+          linkDestination
+        }
+      }
+      ... on SanityAccordion {
+        _key
+        _type
+        title
+        image {
+          asset {
+            url
+          }
+        }
+        _rawContent
       }
     }
     metaDescription

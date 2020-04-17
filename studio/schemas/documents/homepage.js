@@ -80,6 +80,7 @@ export default {
       type: 'array',
       title: 'Flexible Content',
       of: [
+        { type: 'accordion' },
         { type: 'multiColumnText' },
         { type: 'slider' },
       ],

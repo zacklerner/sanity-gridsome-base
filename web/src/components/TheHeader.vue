@@ -28,11 +28,9 @@ export default {
 
 <style>
 .the-header {
-  background-color: #ff7500;
-  padding: var(--common-spacing);
   display: flex;
   justify-content: space-between;
-  box-shadow: var(--primary-shadow);
+  box-shadow: var(--shadow-primary);
 }
 .navigation--primary a {
   margin-left: calc(var(--common-spacing) / 2);

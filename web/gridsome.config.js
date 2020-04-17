@@ -22,6 +22,8 @@ module.exports = {
     SanityGenericPage: '/:slug__current'
   },
 
+  runtimeCompiler: true,
+
   plugins: [
     {
       use: 'gridsome-source-sanity',
