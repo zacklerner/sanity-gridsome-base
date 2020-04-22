@@ -46,6 +46,9 @@ export default {
         slidesPerView: 2.75,
         initialSlide: 1,
         loop: true,
+        autoplay: {
+          delay: 5000
+        },
         spaceBetween: 30,
         centeredSlides: true,
         pagination: {
