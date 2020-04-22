@@ -19,8 +19,8 @@
                 v-if="accordion.image !== null"
               />
               <BaseBlockContent
-                :blocks="accordion.content"
-                v-if="accordion.content"
+                :blocks="accordion._rawContent"
+                v-if="accordion._rawContent"
               />
             </template>
           </badger-accordion-item>
