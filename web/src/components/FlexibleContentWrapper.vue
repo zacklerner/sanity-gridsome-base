@@ -26,12 +26,19 @@
         :image="block.image"
         :content="block._rawContent"
       />
+      <FlexibleContentAccordionGroup
+        v-if="block._type == 'accordionGroup'"
+        :type="block._type"
+        :title="block.title"
+        :accordions="block.accordions"
+      />
     </div>
   </div>
 </template>
 
 <script>
 import FlexibleContentAccordion from '~/components/FlexibleContentAccordion'
+import FlexibleContentAccordionGroup from '~/components/FlexibleContentAccordionGroup'
 import FlexibleContentMultiColumnText from '~/components/FlexibleContentMultiColumnText'
 import FlexibleContentSlider from '~/components/FlexibleContentSlider'
 
@@ -41,6 +48,7 @@ export default {
   },
   components: {
     FlexibleContentAccordion,
+    FlexibleContentAccordionGroup,
     FlexibleContentMultiColumnText,
     FlexibleContentSlider
   }

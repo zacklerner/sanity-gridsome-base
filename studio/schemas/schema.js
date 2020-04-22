@@ -14,6 +14,7 @@ import siteSettings from './documents/siteSettings'
 
 // Object types
 import accordion from './objects/accordion'
+import accordionGroup from './objects/accordionGroup'
 import authorReference from './objects/authorReference'
 import bodyPortableText from './objects/bodyPortableText'
 import bioPortableText from './objects/bioPortableText'
@@ -34,6 +35,7 @@ export default createSchema({
     // The following are document types which will appear
     // in the studio.
     accordion,
+    accordionGroup,
     author,
     authorReference,
     bioPortableText,

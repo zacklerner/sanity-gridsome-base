@@ -81,6 +81,7 @@ export default {
       title: 'Flexible Content',
       of: [
         { type: 'accordion' },
+        { type: 'accordionGroup' },
         { type: 'multiColumnText' },
         { type: 'slider' },
       ],

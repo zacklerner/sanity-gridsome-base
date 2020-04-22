@@ -123,6 +123,24 @@ query Page {
         }
         _rawContent
       }
+      ... on SanityAccordionGroup {
+        _key
+        _type
+        title
+        accordions {
+          ... on SanityAccordion {
+            _key
+            _type
+            title
+            image {
+              asset {
+                url
+              }
+            }
+            _rawContent
+          }
+        }
+      }
     }
     metaDescription
   }
