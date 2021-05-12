@@ -14,7 +14,7 @@
     "gridsome-plugin-base-components": "0.0.12",
     "gridsome-source-sanity": "^1.0.1",
     "sanity-blocks-vue-component": "^0.1.0",
-    "swiper": "^5.3.7",
+    "swiper": "^6.5.1",
     "vue-awesome-swiper": "^4.1.0",
     "vue-badger-accordion": "^1.1.6"
   },
